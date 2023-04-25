@@ -10,24 +10,37 @@ class ContactTexts extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        sixh10,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            sixh20,
-            Text(
-              title,
-              style: const TextStyle(fontSize: 15),
-            ),
-            sixh5,
-            Text(
-              text,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            )
-          ],
+        sixh20,
+        Text(
+          title,
+          style: const TextStyle(fontSize: 15),
         ),
+        sixh5,
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: Text(
+                text,
+                style: TextStyle(
+                    fontSize: (title == 'Alcoholic' ||
+                            title == 'Glass' ||
+                            title == 'Category')
+                        ? 18
+                        : 15,
+                    fontWeight: (title == 'Alcoholic' ||
+                            title == 'Glass' ||
+                            title == 'Category')
+                        ? FontWeight.bold
+                        : FontWeight.w600),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

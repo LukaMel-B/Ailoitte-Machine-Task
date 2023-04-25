@@ -31,11 +31,7 @@ class DrinksModel {
 class Drinks {
   String? idDrink;
   String? strDrink;
-  dynamic strDrinkAlternate;
-  dynamic strTags;
-  dynamic strVideo;
   String? strCategory;
-  dynamic strIBA;
   String? strAlcoholic;
   String? strGlass;
   String? strInstructions;
@@ -76,72 +72,57 @@ class Drinks {
   dynamic strMeasure13;
   dynamic strMeasure14;
   dynamic strMeasure15;
-  dynamic strImageSource;
-  dynamic strImageAttribution;
-  String? strCreativeCommonsConfirmed;
-  String? dateModified;
 
-  Drinks(
-      {this.idDrink,
-      this.strDrink,
-      this.strDrinkAlternate,
-      this.strTags,
-      this.strVideo,
-      this.strCategory,
-      this.strIBA,
-      this.strAlcoholic,
-      this.strGlass,
-      this.strInstructions,
-      this.strInstructionsES,
-      this.strInstructionsDE,
-      this.strInstructionsFR,
-      this.strInstructionsIT,
-      this.strInstructionsZHHANS,
-      this.strInstructionsZHHANT,
-      this.strDrinkThumb,
-      this.strIngredient1,
-      this.strIngredient2,
-      this.strIngredient3,
-      this.strIngredient4,
-      this.strIngredient5,
-      this.strIngredient6,
-      this.strIngredient7,
-      this.strIngredient8,
-      this.strIngredient9,
-      this.strIngredient10,
-      this.strIngredient11,
-      this.strIngredient12,
-      this.strIngredient13,
-      this.strIngredient14,
-      this.strIngredient15,
-      this.strMeasure1,
-      this.strMeasure2,
-      this.strMeasure3,
-      this.strMeasure4,
-      this.strMeasure5,
-      this.strMeasure6,
-      this.strMeasure7,
-      this.strMeasure8,
-      this.strMeasure9,
-      this.strMeasure10,
-      this.strMeasure11,
-      this.strMeasure12,
-      this.strMeasure13,
-      this.strMeasure14,
-      this.strMeasure15,
-      this.strImageSource,
-      this.strImageAttribution,
-      this.strCreativeCommonsConfirmed,
-      this.dateModified});
+  Drinks({
+    this.idDrink,
+    this.strDrink,
+    this.strCategory,
+    this.strAlcoholic,
+    this.strGlass,
+    this.strInstructions,
+    this.strInstructionsES,
+    this.strInstructionsDE,
+    this.strInstructionsFR,
+    this.strInstructionsIT,
+    this.strInstructionsZHHANS,
+    this.strInstructionsZHHANT,
+    this.strDrinkThumb,
+    this.strIngredient1,
+    this.strIngredient2,
+    this.strIngredient3,
+    this.strIngredient4,
+    this.strIngredient5,
+    this.strIngredient6,
+    this.strIngredient7,
+    this.strIngredient8,
+    this.strIngredient9,
+    this.strIngredient10,
+    this.strIngredient11,
+    this.strIngredient12,
+    this.strIngredient13,
+    this.strIngredient14,
+    this.strIngredient15,
+    this.strMeasure1,
+    this.strMeasure2,
+    this.strMeasure3,
+    this.strMeasure4,
+    this.strMeasure5,
+    this.strMeasure6,
+    this.strMeasure7,
+    this.strMeasure8,
+    this.strMeasure9,
+    this.strMeasure10,
+    this.strMeasure11,
+    this.strMeasure12,
+    this.strMeasure13,
+    this.strMeasure14,
+    this.strMeasure15,
+  });
 
   Drinks.fromJson(Map<String, dynamic> json) {
     idDrink = json['idDrink'];
     strDrink = json['strDrink'];
-    strDrinkAlternate = json['strDrinkAlternate'];
-    strTags = json['strTags'];
-    strVideo = json['strVideo'];
     strCategory = json['strCategory'];
-    strIBA = json['strIBA'];
     strAlcoholic = json['strAlcoholic'];
     strGlass = json['strGlass'];
     strInstructions = json['strInstructions'];
@@ -182,21 +163,13 @@ class Drinks {
     strMeasure13 = json['strMeasure13'];
     strMeasure14 = json['strMeasure14'];
     strMeasure15 = json['strMeasure15'];
-    strImageSource = json['strImageSource'];
-    strImageAttribution = json['strImageAttribution'];
-    strCreativeCommonsConfirmed = json['strCreativeCommonsConfirmed'];
-    dateModified = json['dateModified'];
   }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['idDrink'] = idDrink;
     data['strDrink'] = strDrink;
-    data['strDrinkAlternate'] = strDrinkAlternate;
-    data['strTags'] = strTags;
-    data['strVideo'] = strVideo;
     data['strCategory'] = strCategory;
-    data['strIBA'] = strIBA;
     data['strAlcoholic'] = strAlcoholic;
     data['strGlass'] = strGlass;
     data['strInstructions'] = strInstructions;
@@ -237,10 +210,6 @@ class Drinks {
     data['strMeasure13'] = strMeasure13;
     data['strMeasure14'] = strMeasure14;
     data['strMeasure15'] = strMeasure15;
-    data['strImageSource'] = strImageSource;
-    data['strImageAttribution'] = strImageAttribution;
-    data['strCreativeCommonsConfirmed'] = strCreativeCommonsConfirmed;
-    data['dateModified'] = dateModified;
     return data;
   }
 }

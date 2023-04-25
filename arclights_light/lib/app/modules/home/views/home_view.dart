@@ -1,8 +1,10 @@
 import 'package:arclights_light/app/data/models/drinks_model.dart';
 import 'package:arclights_light/app/modules/consts/sizedbox_consts.dart';
+import 'package:arclights_light/app/modules/details/bindings/details_binding.dart';
+import 'package:arclights_light/app/modules/details/views/details_view.dart';
 import 'package:arclights_light/app/modules/home/controllers/home_controller.dart';
-import 'package:arclights_light/app/modules/home/views/widgets/appbar_home.dart';
-import 'package:arclights_light/app/modules/home/views/widgets/listile_custom.dart';
+import 'package:arclights_light/app/modules/home/widgets/appbar_home.dart';
+import 'package:arclights_light/app/modules/home/widgets/listile_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +18,7 @@ class HomeView extends GetView<HomeController> {
           padding: const EdgeInsets.all(16.0),
           child: SafeArea(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
                 onChanged: (value) {
@@ -30,6 +33,9 @@ class HomeView extends GetView<HomeController> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30))),
               ),
+              sixh30,
+              const Text("Recently viewed",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Container(
                   margin: const EdgeInsets.only(top: 20),
                   width: 350,
@@ -37,7 +43,7 @@ class HomeView extends GetView<HomeController> {
                   child: GetBuilder<HomeController>(builder: (_) {
                     return controller.recentList.isEmpty
                         ? const Center(
-                            child: Text("Recently viewed",
+                            child: Text("No recent views",
                                 style: TextStyle(fontSize: 18)))
                         : ListView.separated(
                             scrollDirection: Axis.horizontal,
@@ -52,23 +58,37 @@ class HomeView extends GetView<HomeController> {
                                   controller.recentList[index]['data'];
                               return Column(
                                 children: [
-                                  Container(
-                                    width: 75,
-                                    height: 75,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                data.strDrinkThumb.toString())),
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(20))),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => const DetailsView(),
+                                          transition: Transition.cupertino,
+                                          arguments: data,
+                                          binding: DetailsBinding());
+                                    },
+                                    child: Container(
+                                      width: 75,
+                                      height: 75,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: NetworkImage(data
+                                                  .strDrinkThumb
+                                                  .toString())),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(20))),
+                                    ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 8.0, bottom: 8),
-                                    child: Text(
-                                      data.strDrink.toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                  SizedBox(
+                                    width: 80,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 8.0, bottom: 5),
+                                      child: Text(
+                                        data.strDrink.toString(),
+                                        textAlign: TextAlign.center,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                   ),
                                   Text(
@@ -83,7 +103,10 @@ class HomeView extends GetView<HomeController> {
                             },
                           );
                   })),
-              sixh10,
+              sixh20,
+              const Text("Drinks",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              sixh20,
               Obx(() {
                 return (!controller.isLoaded.value)
                     ? const Center(
@@ -95,7 +118,7 @@ class HomeView extends GetView<HomeController> {
                     : (controller.sortedDrinks.isEmpty)
                         ? const Center(child: Text('No datas Available'))
                         : SizedBox(
-                            height: MediaQuery.of(context).size.height / 2,
+                            height: MediaQuery.of(context).size.height / 2.4,
                             child: Obx(() {
                               return ListView.separated(
                                 physics: const BouncingScrollPhysics(),

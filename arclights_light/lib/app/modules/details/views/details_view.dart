@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:arclights_light/app/modules/consts/sizedbox_consts.dart';
 import 'package:arclights_light/app/modules/details/controllers/details_controller.dart';
 import 'package:arclights_light/app/modules/details/widgets/appbar.dart';
@@ -24,24 +26,20 @@ class DetailsView extends GetView<DetailsController> {
               height: 35,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Flexible(
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    ContactTexts(
-                        text: controller.drink.strAlcoholic!, title: 'Email'),
-                    ContactTexts(
-                        text: controller.drink.strGlass.toString(),
-                        title: 'Age'),
-                    ContactTexts(
-                        text: controller.drink.strAlcoholic!, title: 'Address'),
-                    ContactTexts(
-                        text: controller.drink.strCategory.toString(),
-                        title: 'Salary'),
-                    sixh10,
-                  ],
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2.4,
+                child: ListView.builder(
+                  itemCount: DetailsList().detailsList.length,
+                  itemBuilder: (context, index) {
+                    log(DetailsList().detailsList[index].title.toString());
+                    return (DetailsList().detailsList[index].content == '')
+                        ? const SizedBox()
+                        : ContactTexts(
+                            text: DetailsList().detailsList[index].content,
+                            title: DetailsList().detailsList[index].title);
+                  },
                 ),
               ),
             ),

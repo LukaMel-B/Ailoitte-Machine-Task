@@ -28,7 +28,7 @@ class DrinksProvider extends GetConnect {
           },
         ),
       );
-      log(response.toString());
+      // log(response.toString());
       DrinksModel drinksModel = drinksFromJson(response.toString());
       Get.find<HomeController>().drinks = drinksModel.drinks!;
       Get.find<HomeController>().sortedDrinks = drinksModel.drinks!;
