@@ -12,3 +12,4 @@ UI design of the project:
  
  Video Reference:
  https://user-images.githubusercontent.com/86194825/234241173-7e9a45de-f5b3-4c0f-a272-83f38b16b802.mov
+<p><img align="left" src="https://github-readme-streak-stats.herokuapp.com/?user=rishavchanda&&theme=tokyonight" alt="rishavchanda" /><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=rishavchanda&&theme=tokyonight" alt="rishavchanda" /></p> 
